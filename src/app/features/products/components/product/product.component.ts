@@ -2,11 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-product',
-  standalone: true,
-  imports: [],
   templateUrl: './product.component.html',
-  styleUrl: './product.component.scss'
+  styleUrl: './product.component.scss',
+  standalone: true,
 })
-export class ProductComponent {
-
-}
+export class ProductComponent {}
