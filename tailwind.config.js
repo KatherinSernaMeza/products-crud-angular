@@ -16,6 +16,9 @@ module.exports = {
         navlink: "rgba(var(--navlink))",
         navtext: "rgba(var(--navtext))",
       },
+      fontFamily: {
+        body: ["Montserrat"],
+      },
     },
   },
   plugins: [],
