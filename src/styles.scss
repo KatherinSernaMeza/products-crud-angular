@@ -2,3 +2,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global app theme variables */
+
+.dark {
+  --background: 40, 44, 81;
+  --container: 31, 36, 64;
+  --card: 47, 50, 93;
+  --box: 65, 69, 137;
+  --contBorder: 118, 11, 255;
+  --input: 65, 69, 137;
+  --text: 255, 255, 255;
+  --descriptiontext: 214, 214, 214;
+  --btn: 47, 50, 93;
+  --navlink: 255, 255, 255;
+  --navtext: 47, 50, 93;
+}
+
+.light {
+  --background: 255, 255, 255;
+  --container: 248, 240, 255;
+  --card: 255, 255, 255;
+  --box: 249, 249, 249;
+  --contBorder: 118, 11, 255;
+  --input: 249, 249, 249;
+  --text: 0, 0, 0;
+  --descriptiontext: 249, 249, 249;
+  --btn: 249, 249, 249;
+  --navlink: 249, 249, 249;
+  --navtext: 164, 135, 210;
+}
