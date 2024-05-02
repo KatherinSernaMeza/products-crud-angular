@@ -13,13 +13,16 @@
   --container: 31, 36, 64;
   --card: 47, 50, 93;
   --box: 65, 69, 137;
+  --form: 40, 44, 81;
+  --row: 65, 69, 137;
   --contBorder: 118, 11, 255;
   --input: 65, 69, 137;
-  --text: 255, 255, 255;
+  --textcolor: 255, 255, 255;
   --descriptiontext: 214, 214, 214;
   --btn: 47, 50, 93;
   --navlink: 255, 255, 255;
   --navtext: 47, 50, 93;
+  background: rgba(var(--background));
 }
 
 .light {
@@ -27,11 +30,106 @@
   --container: 248, 240, 255;
   --card: 255, 255, 255;
   --box: 249, 249, 249;
+  --form: 255, 255, 255;
   --contBorder: 118, 11, 255;
   --input: 249, 249, 249;
-  --text: 0, 0, 0;
+  --textcolor: 0, 0, 0;
   --descriptiontext: 249, 249, 249;
   --btn: 249, 249, 249;
   --navlink: 249, 249, 249;
   --navtext: 164, 135, 210;
+  background: rgba(var(--background));
+}
+
+/* Selector elements styles */
+h1 {
+  @apply mb-4 text-6xl font-bold text-textcolor;
+}
+h2 {
+  @apply mb-4 text-5xl font-bold text-textcolor;
+}
+h3 {
+  @apply mb-4 text-4xl font-bold text-textcolor;
+}
+h4 {
+  @apply mb-4 text-3xl font-bold text-textcolor;
+}
+h5 {
+  @apply mb-4 text-2xl font-bold text-textcolor;
+}
+h6 {
+  @apply mb-4 text-xl font-bold text-textcolor;
+}
+
+p {
+  @apply mb-3 leading-tight text-textcolor;
+}
+
+input {
+  @apply h-8 w-full rounded-lg bg-input text-textcolor;
+}
+
+textarea {
+  @apply h-28 w-full rounded-lg bg-input text-textcolor;
+}
+
+button {
+  @apply h-8 w-full rounded-lg border border-white bg-btn text-textcolor hover:bg-indigo-950;
+}
+
+form {
+  @apply rounded-lg bg-form;
+}
+
+table {
+  @apply w-full table-auto rounded-lg bg-card p-10 text-textcolor;
+}
+
+tr {
+  @apply h-10 rounded-lg text-textcolor;
+}
+
+th {
+  @apply pl-4 text-textcolor;
+}
+td {
+  @apply pl-4 text-textcolor;
+}
+
+td:first-child {
+  @apply rounded-l-lg;
+}
+
+td:last-child {
+  @apply rounded-r-lg;
+}
+
+header {
+  @apply h-8 w-full;
+}
+footer {
+  @apply h-8 w-full;
+}
+aside {
+  @apply h-full w-full text-textcolor;
+}
+nav {
+  @apply h-full w-full;
+}
+section {
+  @apply h-full w-full;
+}
+
+menu {
+  @apply h-full w-full;
+}
+
+li {
+  @apply w-full;
+}
+ul {
+  @apply w-full;
+}
+a {
+  @apply w-full;
 }
