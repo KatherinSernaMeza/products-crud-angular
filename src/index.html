@@ -7,7 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
-  <body class="dark">
-    <app-root></app-root>
+  <body class="tablet:grid-cols-[220px_minmax(900px,_1fr)_100px] dark grid">
+    <span>
+      <aside>
+        <nav>
+          <menu>
+            <li class="sticky top-0">
+              <ul>
+                <a>Home</a>
+              </ul>
+              <ul>
+                <a>Products</a>
+              </ul>
+            </li>
+          </menu>
+        </nav>
+      </aside>
+    </span>
+    <span class="grid-rows-[220px_minmax(900px,_1fr)_100px]">
+      <header class="sticky top-0">Header</header>
+      <main>
+        <section>
+          <app-root></app-root>
+        </section>
+      </main>
+      <footer class="sticky bottom-0">Footer</footer>
+    </span>
   </body>
 </html>

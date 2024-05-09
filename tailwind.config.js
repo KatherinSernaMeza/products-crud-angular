@@ -21,6 +21,10 @@ module.exports = {
       fontFamily: {
         body: ["Montserrat"],
       },
+      screens: {
+        tablet: "992px",
+        // => @media (min-width: 992px) { ... }
+      },
     },
   },
   plugins: [],
