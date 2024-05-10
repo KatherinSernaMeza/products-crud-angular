@@ -1,11 +1,19 @@
+import { MenuComponent } from './shared/components/menu/menu.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { ContainerComponent } from './shared/components/container/container.component';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [RouterOutlet],
+  imports: [
+    MenuComponent,
+    HeaderComponent,
+    FooterComponent,
+    ContainerComponent,
+  ],
   standalone: true,
 })
 export class AppComponent {

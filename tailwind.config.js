@@ -9,6 +9,7 @@ module.exports = {
         card: "rgba(var(--card))",
         box: "rgba(var(--box))",
         form: "rgba(var(--form))",
+        table: "rgba(var(--table))",
         row: "rgba(var(--row))",
         contBorder: "rgba(var(--contBorder))",
         input: "rgba(var(--input))",

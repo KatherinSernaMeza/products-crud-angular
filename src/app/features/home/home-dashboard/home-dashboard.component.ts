@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './home-dashboard.component.scss',
   standalone: true,
 })
-export class HomeDashboardComponent {}
+export class HomeDashboardComponent {
+  rutaImagen: string = 'assets/img/home.jpg';
+}

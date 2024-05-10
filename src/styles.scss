@@ -14,6 +14,7 @@
   --card: 47, 50, 93;
   --box: 65, 69, 137;
   --form: 40, 44, 81;
+  --table: 40, 44, 81;
   --row: 65, 69, 137;
   --contBorder: 118, 11, 255;
   --input: 65, 69, 137;
@@ -31,6 +32,7 @@
   --card: 255, 255, 255;
   --box: 249, 249, 249;
   --form: 255, 255, 255;
+  --table: 255, 255, 255 --row: 65, 69, 137;
   --contBorder: 118, 11, 255;
   --input: 249, 249, 249;
   --textcolor: 0, 0, 0;
@@ -66,15 +68,15 @@ p {
 }
 
 input {
-  @apply h-8 w-full rounded-lg bg-input text-textcolor;
+  @apply h-10 w-full rounded-lg bg-input pl-7 pr-7 text-textcolor;
 }
 
 textarea {
-  @apply h-28 w-full rounded-lg bg-input text-textcolor;
+  @apply h-36 w-full rounded-lg bg-input pl-7 pr-7 pt-4 text-textcolor;
 }
 
 button {
-  @apply h-8 w-full rounded-lg border border-white bg-btn text-textcolor hover:bg-indigo-950;
+  @apply h-12 rounded-lg border border-white bg-btn text-textcolor hover:bg-indigo-950;
 }
 
 form {
@@ -82,7 +84,7 @@ form {
 }
 
 table {
-  @apply w-full table-auto rounded-lg bg-card p-10 text-textcolor;
+  @apply bg-table w-full table-auto rounded-lg p-10 text-textcolor;
 }
 
 tr {
@@ -132,4 +134,7 @@ ul {
 }
 a {
   @apply w-full;
+}
+img {
+  @apply rounded-[40px];
 }
