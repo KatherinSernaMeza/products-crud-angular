@@ -32,7 +32,8 @@
   --card: 255, 255, 255;
   --box: 249, 249, 249;
   --form: 255, 255, 255;
-  --table: 255, 255, 255 --row: 65, 69, 137;
+  --table: 255, 255, 255;
+  --row: 249, 249, 249;
   --contBorder: 118, 11, 255;
   --input: 249, 249, 249;
   --textcolor: 0, 0, 0;
@@ -84,7 +85,7 @@ form {
 }
 
 table {
-  @apply bg-table w-full table-auto rounded-lg p-10 text-textcolor;
+  @apply w-full table-auto rounded-lg bg-table p-10 text-textcolor;
 }
 
 tr {

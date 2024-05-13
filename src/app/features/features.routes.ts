@@ -7,9 +7,17 @@ import { ListProductsComponent } from './products/components/list-products/list-
 
 export const FEATURES_ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeDashboardComponent },
+  {
+    path: 'home',
+    component: HomeDashboardComponent,
+    data: { menuItem: { label: 'Home', icon: 'home' } },
+  },
   { path: 'create', component: CreateComponent },
   { path: 'update/:id', component: UpdateComponent },
   { path: 'product/:id', component: ProductComponent },
-  { path: 'products', component: ListProductsComponent },
+  {
+    path: 'products',
+    component: ListProductsComponent,
+    data: { menuItem: { label: 'Products', icon: 'products' } },
+  },
 ];
