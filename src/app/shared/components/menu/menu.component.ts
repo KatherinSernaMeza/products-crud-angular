@@ -4,14 +4,14 @@ import { MenuService } from '../../../Core/Services/menu.service';
 import { MenuItem } from '../../../Core/models/menu.interface';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
   standalone: true,
-  imports: [LogoComponent, CommonModule],
+  imports: [LogoComponent, CommonModule, RouterModule],
 })
 export class MenuComponent implements OnInit {
   menuItems: MenuItem[] = [];
