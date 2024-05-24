@@ -1,26 +1,50 @@
-import { productService } from './../../../../Core/Services/product.service';
+import {
+  GetProductsResponse,
+  productService,
+} from './../../../../Core/Services/product.service';
 import { product } from './../../../../Core/models/products.interface';
 import { Component } from '@angular/core';
 import { CardComponent } from '../../../../shared/components/card/card.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from '../../../../Core/core.module';
+import { NgClass, NgFor } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-list-products',
   templateUrl: './list-products.component.html',
   styleUrl: './list-products.component.scss',
   standalone: true,
-  imports: [CardComponent],
+  imports: [CardComponent, CoreModule, NgClass, NgFor, FormsModule],
 })
 export class ListProductsComponent {
   products: product[] = [];
+  search: string = '';
   constructor(private productService: productService) {}
   ngOnInit(): void {
     this.getProducts();
   }
 
   getProducts(): void {
-    this.productService
-      .getProducts()
-      .subscribe((products) => (this.products = products));
+    this.productService.getProducts().subscribe(
+      (data: GetProductsResponse) => {
+        this.products = data.products;
+        console.log('Products:', this.products); // Imprime el arreglo de productos en la consola
+      },
+      (error) => {
+        console.error('Error fetching products', error);
+      },
+    );
+  }
+
+  searchProducts(term: string): void {
+    if (term === '') {
+      this.getProducts();
+    } else {
+      this.productService
+        .searchProducts(term)
+        .subscribe((products) => (this.products = products.products));
+    }
   }
 
   addNewProduct(

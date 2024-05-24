@@ -1,42 +1,93 @@
 <div class="ml-12 mr-12 pt-12">
-  <input class="mb-6 pb-12" />
-  <div class="rounded-3xl bg-table pb-12 pl-12 pr-12 pt-6">
-    <table class="p-5">
-      <tr>
-        <th>Company</th>
-        <th>Contact</th>
-        <th>Country</th>
-      </tr>
-      <tr class="bg-row">
-        <td>Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany</td>
-      </tr>
-      <tr class="bg-container">
-        <td>Centro comercial Moctezuma</td>
-        <td>Francisco Chang</td>
-        <td>Mexico</td>
-      </tr>
-      <tr class="bg-row">
-        <td>Ernst Handel</td>
-        <td>Roland Mendel</td>
-        <td>Austria</td>
-      </tr>
-      <tr class="bg-container">
-        <td>Island Trading</td>
-        <td>Helen Bennett</td>
-        <td>UK</td>
-      </tr>
-      <tr class="bg-row">
-        <td>Laughing Bacchus Winecellars</td>
-        <td>Yoshi Tannamuri</td>
-        <td>Canada</td>
-      </tr>
-      <tr class="bg-container">
-        <td>Magazzini Alimentari Riuniti</td>
-        <td>Giovanni Rovelli</td>
-        <td>Italy</td>
-      </tr>
-    </table>
+  <div class="mb-6 flex rounded-xl border-2 border-black">
+    <input class="pb-6 pt-6" [(ngModel)]="search" />
+    <button (click)="searchProducts(search)">
+      <img
+        src="../../../../../assets/img/search.svg"
+        alt="search"
+        width="50px p-5"
+      />
+    </button>
+  </div>
+  <div class="max-h-[66vh] rounded-3xl bg-table pb-12 pl-12 pr-12 pt-6">
+    <div class="max-h-[61vh] overflow-y-auto">
+      <table class="p-5">
+        <tr>
+          <th>id</th>
+          <th>title</th>
+          <th>description</th>
+          <th>category</th>
+          <th>price</th>
+          <th>rating</th>
+          <th>stock</th>
+          <th>tags</th>
+          <th>brand</th>
+          <th>sku</th>
+          <th>weight</th>
+          <th>dimensions</th>
+          <th>warrantyInformation</th>
+          <th>shippingInformation</th>
+          <th>availabilityStatus</th>
+          <th>reviews</th>
+          <th>returnPolicy</th>
+          <th>min-quantity</th>
+          <th>Actions</th>
+        </tr>
+        <tr
+          [ngClass]="product.id % 2 !== 0 ? ' bg-row' : 'bg-container'"
+          class=""
+          *ngFor="let product of products"
+        >
+          <td>{{ product.id }}</td>
+          <td>
+            <p
+              class="relative m-0 inline-block h-[18px] w-[140px] overflow-hidden text-ellipsis whitespace-nowrap p-0 text-center decoration-0"
+            >
+              {{ product.title }}
+            </p>
+          </td>
+          <td>
+            <p
+              class="relative mb-0 inline-block h-[18px] w-[140px] overflow-hidden text-ellipsis whitespace-nowrap p-0 text-center decoration-0"
+            >
+              {{ product.description }}
+            </p>
+          </td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.rating }}</td>
+          <td>{{ product.stock }}</td>
+          <td>{{ product.tags[0] }}</td>
+          <td>{{ product.brand }}</td>
+          <td>{{ product.sku }}</td>
+          <td>{{ product.weight }}</td>
+          <!-- <td>{{ product.dimensions }}</td> -->
+          <td>...</td>
+          <td>{{ product.warrantyInformation }}</td>
+          <td>{{ product.shippingInformation }}</td>
+          <td>{{ product.availabilityStatus }}</td>
+          <!-- <td>{{ product.reviews }}</td> -->
+          <td>...</td>
+          <td>{{ product.returnPolicy }}</td>
+          <td>{{ product.minimumOrderQuantity }}</td>
+          <td class="flex w-[140px] justify-around">
+            <button class="flex w-[60px] items-center justify-center">
+              <img
+                src="../../../../../assets/img/edit.svg"
+                alt="search"
+                width="20px p-5"
+              />
+            </button>
+            <button class="flex w-[60px] items-center justify-center">
+              <img
+                src="../../../../../assets/img/delete.svg"
+                alt="search"
+                width="20px p-5"
+              />
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

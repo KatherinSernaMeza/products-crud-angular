@@ -18,6 +18,8 @@ module.exports = {
         btn: "rgba(var(--btn))",
         navlink: "rgba(var(--navlink))",
         navtext: "rgba(var(--navtext))",
+        rowOne: "rgba(var(--rowOne))",
+        rowTwo: "rgba(var(--rowTwo))",
       },
       fontFamily: {
         body: ["Montserrat"],

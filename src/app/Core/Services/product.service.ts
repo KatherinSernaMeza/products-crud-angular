@@ -7,11 +7,18 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { of } from 'rxjs';
 
+export interface GetProductsResponse {
+  products: product[];
+  total: number;
+  skip: number;
+  limit: number;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class productService {
-  private readonly Api = '';
+  private readonly Api = 'https://dummyjson.com/products';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -22,10 +29,17 @@ export class productService {
   ) {}
 
   /** GET Products from the server */
-  getProducts(): Observable<product[]> {
-    return this.http.get<product[]>(this.Api).pipe(
-      tap((_) => this.log('fetched products')),
-      catchError(this.handleError<product[]>('getProducts', [])),
+  getProducts(): Observable<GetProductsResponse> {
+    return this.http.get<GetProductsResponse>(this.Api).pipe(
+      tap((res) => this.log(res)),
+      catchError(
+        this.handleError<GetProductsResponse>('GetProductsResponse', {
+          products: [],
+          total: 0,
+          skip: 0,
+          limit: 0,
+        }),
+      ),
     );
   }
 
@@ -76,19 +90,33 @@ export class productService {
   }
 
   /* GET heroes whose name contains search term */
-  searchHeroes(term: string): Observable<product[]> {
+  searchProducts(term: string): Observable<GetProductsResponse> {
     if (!term.trim()) {
       // if not search term, return empty hero array.
-      return of([]);
+      return of({
+        products: [],
+        total: 0,
+        skip: 0,
+        limit: 0,
+      });
     }
-    return this.http.get<product[]>(`${this.Api}/?name=${term}`).pipe(
-      tap((x) =>
-        x.length
-          ? this.log(`found products matching "${term}"`)
-          : this.log(`no products matching "${term}"`),
-      ),
-      catchError(this.handleError<product[]>('searchProducts', [])),
-    );
+    return this.http
+      .get<GetProductsResponse>(`${this.Api}/search?q=${term}`)
+      .pipe(
+        tap((x) =>
+          x
+            ? this.log(`found products matching "${term}"`)
+            : this.log(`no products matching "${term}"`),
+        ),
+        catchError(
+          this.handleError<GetProductsResponse>('searchProducts', {
+            products: [],
+            total: 0,
+            skip: 0,
+            limit: 0,
+          }),
+        ),
+      );
   }
 
   /**
@@ -112,7 +140,7 @@ export class productService {
   }
 
   /** Log a HeroService message with the MessageService */
-  private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+  private log(message: any) {
+    this.messageService.add(`productService: ${message}`);
   }
 }

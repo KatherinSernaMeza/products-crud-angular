@@ -6,8 +6,16 @@ export interface product {
   discountPercentage: number;
   rating: number;
   stock: number;
+  tags: Array<any>;
   brand: string;
   category: string;
-  thumbnail: string;
-  images: Array<any>;
+  sku: string;
+  weight: number;
+  dimensions: object;
+  warrantyInformation: string;
+  shippingInformation: string;
+  availabilityStatus: string;
+  reviews: Array<any>;
+  returnPolicy: string;
+  minimumOrderQuantity: number;
 }
