@@ -6,13 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { of } from 'rxjs';
-
-export interface GetProductsResponse {
-  products: product[];
-  total: number;
-  skip: number;
-  limit: number;
-}
+import { GetProductsResponse } from '../models/productsResponse.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -45,16 +39,18 @@ export class productService {
 
   /** ADD product from the server */
   addNewProduct(product: product): Observable<product> {
-    return this.http.post<product>(this.Api, product, this.httpOptions).pipe(
+    const url = `${this.Api}/add`;
+    return this.http.post<product>(url, product, this.httpOptions).pipe(
       tap((_) => this.log('fetched heroes')),
       catchError(this.handleError<product>('addProduct')),
     );
   }
 
   /** UPDATE product from the server */
-  updateProduct(product: product): Observable<void> {
-    return this.http.put<void>(this.Api, product, this.httpOptions).pipe(
-      tap((_) => this.log('update product id=${product.id}')),
+  updateProduct(product: product, id: number): Observable<void> {
+    const url = `${this.Api}/${id}`;
+    return this.http.put<void>(url, product, this.httpOptions).pipe(
+      tap((_) => this.log(`update product id=${id}`)),
       catchError(this.handleError<void>('updateProduct')),
     );
   }

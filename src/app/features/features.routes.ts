@@ -1,9 +1,8 @@
 import { Routes } from '@angular/router';
 import { HomeDashboardComponent } from './home/home-dashboard/home-dashboard.component';
-import { CreateComponent } from './products/components/create/create.component';
-import { UpdateComponent } from './products/components/update/update.component';
 import { ProductComponent } from './products/components/product/product.component';
 import { ListProductsComponent } from './products/components/list-products/list-products.component';
+import { FormProductComponent } from '../shared/components/form-product/form-product.component';
 
 export const FEATURES_ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,8 +11,8 @@ export const FEATURES_ROUTES: Routes = [
     component: HomeDashboardComponent,
     data: { menuItem: { label: 'Home', icon: 'home' } },
   },
-  { path: 'create', component: CreateComponent },
-  { path: 'update/:id', component: UpdateComponent },
+  { path: 'create', component: FormProductComponent },
+  { path: 'update/:id', component: FormProductComponent },
   { path: 'product/:id', component: ProductComponent },
   {
     path: 'products',

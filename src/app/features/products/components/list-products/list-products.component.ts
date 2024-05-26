@@ -1,14 +1,12 @@
-import {
-  GetProductsResponse,
-  productService,
-} from './../../../../Core/Services/product.service';
+import { productService } from './../../../../Core/Services/product.service';
 import { product } from './../../../../Core/models/products.interface';
 import { Component } from '@angular/core';
 import { CardComponent } from '../../../../shared/components/card/card.component';
-import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from '../../../../Core/core.module';
 import { NgClass, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { GetProductsResponse } from '../../../../Core/models/productsResponse.interface';
 
 @Component({
   selector: 'app-list-products',
@@ -20,7 +18,10 @@ import { FormsModule } from '@angular/forms';
 export class ListProductsComponent {
   products: product[] = [];
   search: string = '';
-  constructor(private productService: productService) {}
+  constructor(
+    private productService: productService,
+    private router: Router,
+  ) {}
   ngOnInit(): void {
     this.getProducts();
   }
@@ -84,8 +85,21 @@ export class ListProductsComponent {
     });
   }
 
-  delete(product: product): void {
-    this.products = this.products.filter((p) => p !== product);
-    this.productService.deleteProduct(product.id).subscribe();
+  delete(id: number): void {
+    console.log(id, 'product');
+    this.products = this.products.filter((p) => p.id !== id);
+    this.productService.deleteProduct(id).subscribe();
+  }
+
+  goToProductDetail(productId: number) {
+    this.router.navigate(['/product', productId]);
+  }
+
+  goToProductUpdate(id: number): void {
+    this.router.navigate(['/update', id]);
+  }
+
+  goToAddProduct(): void {
+    this.router.navigate(['/create']);
   }
 }

@@ -1,5 +1,7 @@
 <form
-  class="flex h-[55vh] min-w-[42rem] max-w-[42rem] flex-col justify-evenly p-14"
+  #form="ngForm"
+  class="flex min-w-[42rem] max-w-[42rem] flex-col justify-evenly p-14"
+  (ngSubmit)="onSubmit($event)"
 >
   <ng-content></ng-content>
 </form>

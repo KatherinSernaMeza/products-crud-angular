@@ -1,17 +1,26 @@
 <div class="ml-12 mr-12 pt-12">
-  <div class="mb-6 flex rounded-xl border-2 border-black">
-    <input class="pb-6 pt-6" [(ngModel)]="search" />
-    <button (click)="searchProducts(search)">
-      <img
-        src="../../../../../assets/img/search.svg"
-        alt="search"
-        width="50px p-5"
-      />
+  <div class="flex w-full">
+    <button class="mr-4" (click)="goToAddProduct()">
+      <img src="../../../../../assets/img/add.svg" alt="search" width="50px" />
     </button>
+    <div class="mb-6 flex w-full rounded-xl border-2 border-black">
+      <input
+        class="pb-6 pt-6"
+        [(ngModel)]="search"
+        value="Buscar por titulo o descripcion"
+      />
+      <button (click)="searchProducts(search)">
+        <img
+          src="../../../../../assets/img/search.svg"
+          alt="search"
+          width="50px"
+        />
+      </button>
+    </div>
   </div>
   <div class="max-h-[66vh] rounded-3xl bg-table pb-12 pl-12 pr-12 pt-6">
     <div class="max-h-[61vh] overflow-y-auto">
-      <table class="p-5">
+      <table class="relative p-5">
         <tr>
           <th>id</th>
           <th>title</th>
@@ -31,12 +40,13 @@
           <th>reviews</th>
           <th>returnPolicy</th>
           <th>min-quantity</th>
-          <th>Actions</th>
+          <th class="sticky right-0 bg-white">Actions</th>
         </tr>
         <tr
           [ngClass]="product.id % 2 !== 0 ? ' bg-row' : 'bg-container'"
           class=""
           *ngFor="let product of products"
+          (click)="goToProductDetail(product.id)"
         >
           <td>{{ product.id }}</td>
           <td>
@@ -70,15 +80,23 @@
           <td>...</td>
           <td>{{ product.returnPolicy }}</td>
           <td>{{ product.minimumOrderQuantity }}</td>
-          <td class="flex w-[140px] justify-around">
-            <button class="flex w-[60px] items-center justify-center">
+          <td
+            class="sticky right-0 flex w-[140px] justify-around bg-white pl-2 pr-2"
+          >
+            <button
+              class="flex w-[60px] items-center justify-center"
+              (click)="goToProductUpdate(product.id)"
+            >
               <img
                 src="../../../../../assets/img/edit.svg"
                 alt="search"
                 width="20px p-5"
               />
             </button>
-            <button class="flex w-[60px] items-center justify-center">
+            <button
+              class="flex w-[60px] items-center justify-center"
+              (click)="delete(product.id)"
+            >
               <img
                 src="../../../../../assets/img/delete.svg"
                 alt="search"

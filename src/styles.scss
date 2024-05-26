@@ -81,9 +81,8 @@ textarea {
 }
 
 button {
-  @apply h-12 rounded-lg border border-white bg-btn text-textcolor hover:bg-indigo-950;
+  @apply h-12 rounded-lg border border-white bg-btn text-textcolor hover:bg-container;
 }
-
 form {
   @apply rounded-lg bg-form;
 }
@@ -93,7 +92,7 @@ table {
 }
 
 tr {
-  @apply hover:bg-rowTwo h-10 cursor-pointer rounded-lg text-textcolor;
+  @apply h-10 cursor-pointer rounded-lg text-textcolor hover:bg-rowTwo;
 }
 
 th {

@@ -1,0 +1,265 @@
+<div class="flex h-full flex-col p-10">
+  <div class="absolute text-white">
+    <button (click)="back()">Regresar</button>
+  </div>
+  <div class="flex h-full items-center justify-center">
+    <form
+      #form="ngForm"
+      class="flex min-w-[42rem] max-w-[42rem] flex-col justify-evenly p-14"
+      (ngSubmit)="onSubmit(form)"
+    >
+      <p class="font-ligh text-2xl">Formulario</p>
+      <label class="font-bold">Title</label>
+      <input class="mb-3 mr-2" name="title" [(ngModel)]="product.title" />
+      <label class="font-bold">Description</label>
+      <textarea
+        class="mb-3 mr-4"
+        name="description"
+        [(ngModel)]="product.description"
+      ></textarea>
+
+      <div class="form-group flex justify-between pb-2">
+        <div class="mb-3 mr-1 w-1/2">
+          <label for="name" class="font-bold">Category</label>
+          <input
+            type="text"
+            class="form-control"
+            name="category"
+            [(ngModel)]="product.category"
+            required
+          />
+          <!-- <div
+            *ngIf="
+              userForm.controls.name?.touched && userForm.controls.name?.invalid
+            "
+            class="text-danger"
+          >
+            Name is required.
+          </div> -->
+        </div>
+        <div class="mb-3 ml-1 w-1/2">
+          <label for="name" class="font-bold">Price</label>
+          <input
+            type="text"
+            class="form-control"
+            name="price"
+            [(ngModel)]="product.price"
+            required
+          />
+          <!-- <div
+            *ngIf="
+              userForm.controls.name?.touched && userForm.controls.name?.invalid
+            "
+            class="text-danger"
+          >
+            Name is required.
+          </div> -->
+        </div>
+      </div>
+
+      <div class="form-group flex justify-between pb-2">
+        <div class="mb-3 mr-1 w-1/2">
+          <label for="name" class="font-bold">Discount percentage</label>
+          <input
+            type="text"
+            class="form-control"
+            name="discountPercentage"
+            [(ngModel)]="product.discountPercentage"
+            required
+          />
+          <!-- <div
+            *ngIf="
+              userForm.controls.name?.touched && userForm.controls.name?.invalid
+            "
+            class="text-danger"
+          >
+            Name is required.
+          </div> -->
+        </div>
+        <div class="mb-3 ml-1 w-1/2">
+          <label for="name" class="font-bold">Rating</label>
+          <input
+            type="text"
+            class="form-control"
+            name="rating"
+            [(ngModel)]="product.rating"
+            required
+          />
+          <!-- <div
+            *ngIf="
+              userForm.controls.name?.touched && userForm.controls.name?.invalid
+            "
+            class="text-danger"
+          >
+            Name is required.
+          </div> -->
+        </div>
+      </div>
+
+      <div class="form-group flex justify-between pb-2">
+        <div class="mb-3 mr-1 w-1/2">
+          <label for="name" class="font-bold">Stock</label>
+          <input
+            type="text"
+            class="form-control"
+            name="stock"
+            [(ngModel)]="product.stock"
+            required
+          />
+          <!-- <div
+            *ngIf="
+              userForm.controls.name?.touched && userForm.controls.name?.invalid
+            "
+            class="text-danger"
+          >
+            Name is required.
+          </div> -->
+        </div>
+        <div class="mb-3 ml-1 w-1/2">
+          <label for="name" class="font-bold">Brand</label>
+          <input
+            type="text"
+            class="form-control"
+            name="brand"
+            [(ngModel)]="product.brand"
+            required
+          />
+          <!-- <div
+            *ngIf="
+              userForm.controls.name?.touched && userForm.controls.name?.invalid
+            "
+            class="text-danger"
+          >
+            Name is required.
+          </div> -->
+        </div>
+      </div>
+
+      <div class="form-group flex justify-between pb-2">
+        <div class="mb-3 mr-1 w-1/2">
+          <label for="sku" class="font-bold">Sku</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sku"
+            [(ngModel)]="product.sku"
+            required
+          />
+          <!-- <div
+            *ngIf="
+              userForm.controls.name?.touched && userForm.controls.name?.invalid
+            "
+            class="text-danger"
+          >
+            Name is required.
+          </div> -->
+        </div>
+        <div class="mb-3 ml-1 w-1/2">
+          <label for="weight" class="font-bold">Weight</label>
+          <input
+            type="text"
+            class="form-control"
+            name="weight"
+            [(ngModel)]="product.weight"
+            required
+          />
+          <!-- <div
+            *ngIf="
+              userForm.controls.name?.touched && userForm.controls.name?.invalid
+            "
+            class="text-danger"
+          >
+            Name is required.
+          </div> -->
+        </div>
+      </div>
+
+      <div class="form-group flex justify-between pb-2">
+        <div class="mb-3 mr-1 w-1/2">
+          <label for="Warranty Information" class="font-bold"
+            >warrantyInformation</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="warrantyInformation"
+            [(ngModel)]="product.warrantyInformation"
+            required
+          />
+          <!-- <div
+            *ngIf="
+              userForm.controls.name?.touched && userForm.controls.name?.invalid
+            "
+            class="text-danger"
+          >
+            Name is required.
+          </div> -->
+        </div>
+        <div class="mb-3 ml-1 w-1/2">
+          <label for="Shipping Information" class="font-bold"
+            >shippingInformation</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="shippingInformation"
+            [(ngModel)]="product.shippingInformation"
+            required
+          />
+          <!-- <div
+            *ngIf="
+              userForm.controls.name?.touched && userForm.controls.name?.invalid
+            "
+            class="text-danger"
+          >
+            Name is required.
+          </div> -->
+        </div>
+      </div>
+
+      <div class="form-group flex justify-between pb-2">
+        <div class="mb-3 mr-1 w-1/2">
+          <label for="Availability Status" class="font-bold"
+            >Availability Status</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="availabilityStatus"
+            [(ngModel)]="product.availabilityStatus"
+            required
+          />
+          <!-- <div
+            *ngIf="
+              userForm.controls.name?.touched && userForm.controls.name?.invalid
+            "
+            class="text-danger"
+          >
+            Name is required.
+          </div> -->
+        </div>
+        <div class="mb-3 ml-1 w-1/2">
+          <label for="Shipping Information" class="font-bold"
+            >Return Policy</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="returnPolicy"
+            [(ngModel)]="product.returnPolicy"
+            required
+          />
+          <!-- <div
+            *ngIf="
+              userForm.controls.name?.touched && userForm.controls.name?.invalid
+            "
+            class="text-danger"
+          >
+            Name is required.
+          </div> -->
+        </div>
+      </div>
+      <app-button type="submit"></app-button>
+    </form>
+  </div>
+</div>
